@@ -1,0 +1,54 @@
+{
+  "level_1": [
+    {
+      "question": "What causes early blight in tomato plants?",
+      "options": [
+        "Fungal infection",
+        "Too much sunlight",
+        "Nitrogen deficiency",
+        "Overwatering"
+      ],
+      "answer": "Fungal infection"
+    },
+    {
+      "question": "Yellow leaves in plants usually indicate?",
+      "options": [
+        "Healthy growth",
+        "Nutrient deficiency",
+        "Strong roots",
+        "Excess oxygen"
+      ],
+      "answer": "Nutrient deficiency"
+    },
+    {
+      "question": "When should you water most crops?",
+      "options": [
+        "Every day",
+        "When the top soil becomes dry",
+        "Once a month",
+        "Only at night"
+      ],
+      "answer": "When the top soil becomes dry"
+    },
+    {
+      "question": "High humidity mainly increases?",
+      "options": [
+        "Fungal growth",
+        "Root size",
+        "Flower size",
+        "Fruit sweetness"
+      ],
+      "answer": "Fungal growth"
+    },
+    {
+      "question": "What does NPK fertilizer provide?",
+      "options": [
+        "Nitrogen, Phosphorus, Potassium",
+        "Water and oxygen",
+        "Only nitrogen",
+        "Only potassium"
+      ],
+      "answer": "Nitrogen, Phosphorus, Potassium"
+    }
+  ]
+}

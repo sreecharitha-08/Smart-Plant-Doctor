@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Detection</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #4e73df, #6f42c1);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 12px;
+            width: 520px;
+            margin: auto;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+        }
+
+        button {
+            background: #4e73df;
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        img {
+            margin-top: 15px;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            background: #28a745;
+            padding: 10px 18px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>🌿 Disease Detection</h1>
+
+<div class="container">
+
+    <form method="POST" action="/detect" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br>
+        <button type="submit">Analyze Plant Image</button>
+    </form>
+
+    {% if prediction %}
+    <div class="success-message">
+        <h3>Analysis Results</h3>
+
+        <p><strong>Plant:</strong> {{ plant }}</p>
+        <p><strong>Status:</strong> {{ status }}</p>
+        <p><strong>Confidence:</strong> {{ confidence }}%</p>
+
+        {% if disease_name %}
+        <p><strong>Disease:</strong> {{ disease_name }}</p>
+        <p><strong>Area Affected:</strong> {{ affected_area }}%</p>
+        {% endif %}
+        <p><strong>Severity:</strong>{{severity}}</p>
+        <p><strong>Summary:</strong> {{ summary }}</p>
+        <p><strong>Care:</strong> {{ care }}</p>
+        <p><strong>Prevention:</strong> {{ prevention }}</p>
+    </div>
+    {% endif %}
+
+    {% if image_path %}
+        <img src="{{ image_path }}">
+    {% endif %}
+
+    <br>
+    <a href="/" class="back-btn">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

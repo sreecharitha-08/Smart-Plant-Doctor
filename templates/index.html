@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Plant Doctor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4e73df, #6f42c1);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 42px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            width: 280px;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 50px;
+        }
+
+        .tip-section {
+            width: 70%;
+            margin: 80px auto;
+            background: linear-gradient(to right, #38b2ac, #4e73df);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>🌿 Smart Plant Doctor</h1>
+
+<p class="subtitle">
+    Detect plant diseases, get AI-powered treatment recommendations, and learn about plant care
+</p>
+
+<div class="badge">✔ Production Mode - CNN Model Loaded</div>
+
+<div class="cards">
+
+    <div class="card" onclick="window.location.href='/detect'">
+        <div class="card-icon">🔎</div>
+        <h3>Disease Detection</h3>
+    </div>
+
+    <div class="card" onclick="window.location.href='/chatbot'">
+        <div class="card-icon">💬</div>
+        <h3>AI Chatbot</h3>
+    </div>
+
+    <div class="card" onclick="window.location.href='/quiz'">
+        <div class="card-icon">🎓</div>
+        <h3>Plant Quiz</h3>
+    </div>
+
+</div>
+
+<div class="tip-section">
+    <h3>💡 Plant Care Tip of the Day</h3>
+    <p>Never use cold water on tropical plants – they prefer room temperature water.</p>
+</div>
+
+</body>
+</html>

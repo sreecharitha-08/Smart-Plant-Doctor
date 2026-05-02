@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Quiz - Smart Plant Doctor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Quiz Container */
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            color: white;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .level-badge {
+            background: #00c853;
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .question-card h4 {
+            margin-bottom: 15px;
+        }
+
+        .option {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #00e676;
+        }
+
+        .quiz-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00c853, #64dd17);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00e676;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media(max-width: 600px) {
+            .quiz-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main-header">
+    🌱 Smart Plant Doctor
+</div>
+
+<div class="quiz-container">
+
+    <h2>🌾 Agriculture Knowledge Quiz</h2>
+
+    <div class="level-badge">
+        Level {{ level }}
+    </div>
+
+    <form method="POST" action="/submit_quiz">
+
+        {% for q in questions %}
+        <div class="question-card">
+            <h4>{{ loop.index }}. {{ q.question }}</h4>
+
+            {% set question_index = loop.index0 %}
+
+            {% for option in q.options %}
+            <label class="option">
+                <input type="radio" name="q{{ question_index }}" value="{{ option }}" required>
+                {{ option }}
+            </label>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="quiz-btn">Submit Quiz 🚀</button>
+    </form>
+
+</div>
+
+</body>
+</html>

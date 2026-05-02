@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="main-header">
+    🌱 Smart Plant Doctor
+</div>
+
+<div class="quiz-container">
+
+    <h2>Quiz Results</h2>
+
+    <p><strong>Score:</strong> {{ score }}/{{ total }}</p>
+
+    {% if unlocked %}
+        <p style="color:green; font-weight:bold;">
+            🎉 Excellent! Level {{ level + 1 }} Unlocked!
+        </p>
+        <a href="/quiz"><button class="quiz-btn">Start Next Level</button></a>
+    {% else %}
+        <p style="color:red; font-weight:bold;">
+            You need full score to unlock next level.
+        </p>
+        <a href="/quiz"><button class="quiz-btn">Retry Level {{ level }}</button></a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
